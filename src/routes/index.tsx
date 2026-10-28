@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import logo from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,6 +40,7 @@ function Index() {
       </header>
 
       <section className="fade-up">
+        <img src={logo.url} alt="Anglo Irish Robotics logo" className="mb-8 h-28 w-auto md:h-36" />
         <h1 className="font-display text-4xl font-medium normal-case tracking-tight text-foreground sm:text-6xl lg:text-8xl">
           Anglo Irish <span className="text-muted-foreground">Robotics</span>
         </h1>
