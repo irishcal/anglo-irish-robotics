@@ -40,9 +40,8 @@ function Index() {
       </header>
 
       <section className="fade-up">
-        <img src={logo.url} alt="Anglo Irish Robotics logo" className="mb-8 h-28 w-auto md:h-36" />
-        <h1 className="font-display text-4xl font-medium normal-case tracking-tight text-foreground sm:text-6xl lg:text-8xl">
-          Anglo Irish <span className="text-muted-foreground">Robotics</span>
+        <h1>
+          <img src={logo.url} alt="Anglo Irish Robotics" className="logo-muted h-28 w-auto md:h-40" />
         </h1>
         <p className="mt-8 max-w-sm normal-case tracking-normal text-sm leading-relaxed">
           Building machines for the physical world. More soon.

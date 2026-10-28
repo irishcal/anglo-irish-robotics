@@ -161,3 +161,5 @@
 @keyframes scan { from { top: -30vh; } to { top: 100vh; } }
 .fade-up { animation: fadeup 1.4s cubic-bezier(.2,.7,.2,1) both; }
 @keyframes fadeup { from { opacity: 0; transform: translateY(16px); filter: blur(6px); } }
+
+.logo-muted { filter: saturate(0.6) brightness(0.92) contrast(0.9); opacity: 0.85; }
