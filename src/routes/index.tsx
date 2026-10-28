@@ -39,10 +39,8 @@ function Index() {
       </header>
 
       <section className="fade-up">
-        <h1 className="font-display text-5xl font-medium normal-case tracking-tight text-foreground md:text-8xl">
-          Anglo Irish
-          <br />
-          <span className="text-muted-foreground">Robotics</span>
+        <h1 className="font-display text-4xl font-medium normal-case tracking-tight text-foreground sm:text-6xl lg:text-8xl">
+          Anglo Irish <span className="text-muted-foreground">Robotics</span>
         </h1>
         <p className="mt-8 max-w-sm normal-case tracking-normal text-sm leading-relaxed">
           Building machines for the physical world. More soon.
