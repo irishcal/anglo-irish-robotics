@@ -27,7 +27,7 @@ function Clock() {
   const [t, setT] = useState("");
 
   useEffect(() => {
-    const f = () =>
+    const updateTime = () =>
       setT(
         new Date().toLocaleTimeString("en-GB", {
           timeZone: "Europe/London",
@@ -35,11 +35,10 @@ function Clock() {
         })
       );
 
-    f();
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
 
-    const i = setInterval(f, 1000);
-
-    return () => clearInterval(i);
+    return () => clearInterval(interval);
   }, []);
 
   return <span>{t || "--:--:--"}</span>;
@@ -62,7 +61,7 @@ function Index() {
       <section className="fade-up">
         <h1>
           <img
-            src="/favicon.png"
+            src="/logo.png"
             alt="Anglo Irish Robotics"
             className="logo-muted h-28 w-auto md:h-40"
           />
