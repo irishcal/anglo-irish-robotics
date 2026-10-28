@@ -36,6 +36,7 @@ function Clock() {
       );
 
     updateTime();
+
     const interval = setInterval(updateTime, 1000);
 
     return () => clearInterval(interval);
@@ -61,7 +62,7 @@ function Index() {
       <section className="fade-up">
         <h1>
           <img
-            src="/logo.png"
+            src="/Anglo%20Irish%20Robotics%20Retro%20Badge.png"
             alt="Anglo Irish Robotics"
             className="logo-muted h-28 w-auto md:h-40"
           />
