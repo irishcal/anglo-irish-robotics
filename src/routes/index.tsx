@@ -1,24 +1,60 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Anglo Irish Robotics — Stealth" },
+      { name: "description", content: "Anglo Irish Robotics is a robotics lab operating in stealth." },
+      { property: "og:title", content: "Anglo Irish Robotics" },
+      { property: "og:description", content: "A robotics lab operating in stealth." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+function Clock() {
+  const [t, setT] = useState("");
+  useEffect(() => {
+    const f = () =>
+      setT(new Date().toLocaleTimeString("en-GB", { timeZone: "Europe/Dublin", hour12: false }));
+    f();
+    const i = setInterval(f, 1000);
+    return () => clearInterval(i);
+  }, []);
+  return <span>{t || "--:--:--"}</span>;
+}
+
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="stealth-grid relative flex min-h-screen flex-col justify-between overflow-hidden bg-background p-6 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground md:p-10">
+      <div className="scanline" aria-hidden />
+      <header className="flex justify-between">
+        <span>AIR / Lab 01</span>
+        <span className="flex items-center gap-2">
+          <span className="pulse-dot" /> Stealth
+        </span>
+      </header>
+
+      <section className="fade-up">
+        <h1 className="font-display text-5xl font-medium normal-case tracking-tight text-foreground md:text-8xl">
+          Anglo Irish
+          <br />
+          <span className="text-muted-foreground">Robotics</span>
+        </h1>
+        <p className="mt-8 max-w-sm normal-case tracking-normal text-sm leading-relaxed">
+          Building machines for the physical world. More soon.
+        </p>
+      </section>
+
+      <footer className="flex flex-wrap items-end justify-between gap-4">
+        <span>
+          53.3498° N / 6.2603° W — <Clock />
+        </span>
+        <span>© {new Date().getFullYear()}</span>
+      </footer>
+    </main>
   );
 }
