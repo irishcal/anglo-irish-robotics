@@ -20,7 +20,7 @@ function Clock() {
   const [t, setT] = useState("");
   useEffect(() => {
     const f = () =>
-      setT(new Date().toLocaleTimeString("en-GB", { timeZone: "Europe/Dublin", hour12: false }));
+      setT(new Date().toLocaleTimeString("en-GB", { timeZone: "Europe/London", hour12: false }));
     f();
     const i = setInterval(f, 1000);
     return () => clearInterval(i);
@@ -50,7 +50,7 @@ function Index() {
 
       <footer className="flex flex-wrap items-end justify-between gap-4">
         <span>
-          53.3498° N / 6.2603° W — <Clock />
+          51.5138° N / 0.0984° W — <Clock />
         </span>
         <span>© {new Date().getFullYear()}</span>
       </footer>
