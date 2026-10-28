@@ -33,10 +33,20 @@ jobs:
       - name: Build website
         run: npm run build
 
+      - name: Verify static output
+        run: |
+          if [ ! -f dist/client/index.html ]; then
+            echo "Expected dist/client/index.html was not generated."
+            if [ -d dist ]; then
+              find dist -maxdepth 3 -type f -print
+            fi
+            exit 1
+          fi
+
       - name: Upload build files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./dist/client
 
   deploy:
     needs: build
